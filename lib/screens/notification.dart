@@ -205,7 +205,7 @@ class NotificationScreenState extends State<NotificationScreen>
         final NotificationModel notification = notifications[index];
         return InkWell(
           onTap: () {
-            // Dispatch NotificationClicked event when the notification is tapped 
+            // Dispatch NotificationClicked event when the notification is tapped
             context
                 .read<NotificationBloc>()
                 .add(NotificationClicked(notificationId: index));

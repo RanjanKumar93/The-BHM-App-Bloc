@@ -7,7 +7,7 @@ import 'package:the_bhm_app_bloc/screens/home/home.dart';
 import 'package:the_bhm_app_bloc/screens/home/payment.dart';
 import 'package:the_bhm_app_bloc/screens/home/prev_payment.dart';
 import 'package:the_bhm_app_bloc/screens/login.dart';
-import 'package:the_bhm_app_bloc/screens/messmenu.dart';
+import 'package:the_bhm_app_bloc/screens/mess_menu.dart';
 import 'package:the_bhm_app_bloc/screens/notification.dart';
 import 'package:the_bhm_app_bloc/screens/profile.dart';
 import 'package:the_bhm_app_bloc/screens/qr.dart';
