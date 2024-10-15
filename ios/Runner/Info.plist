@@ -10,6 +10,13 @@
 <key>NSMicrophoneUsageDescription</key>
 <string>We need access to your microphone for video recording.</string>
 <!--  -->
+<!-- for internet access -->
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+</dict>
+<!--  -->
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
