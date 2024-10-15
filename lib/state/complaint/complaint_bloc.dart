@@ -1,12 +1,6 @@
 import 'dart:io';
-// import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:http/http.dart' as http;
-// import 'package:the_bhm_app/modals/complain_category_modal.dart';
-
-
-
 
 part 'complaint_event.dart';
 part 'complaint_state.dart';
@@ -21,43 +15,49 @@ class Category {
 
 class ComplaintBloc extends Bloc<ComplaintEvent, ComplaintState> {
   ComplaintBloc() : super(const ComplaintState()) {
-    on<UpdateTitle>(_onUpdateTitle);
-    on<UpdateDescription>(_onUpdateDescription);
-    on<UpdateCategory>(_onUpdateCategory);
-    on<UpdateAnonymity>(_onUpdateAnonymity);
-    on<UpdateImage>(_onUpdateImage);
-    on<SubmitComplaint>(_onSubmitComplaint);
+    on<ComplaintEventUpdateTitle>(_onUpdateTitle);
+    on<ComplaintEventUpdateDescription>(_onUpdateDescription);
+    on<ComplaintEventUpdateCategory>(_onUpdateCategory);
+    on<ComplaintEventUpdateAnonymity>(_onUpdateAnonymity);
+    on<ComplaintEventUpdateImage>(_onUpdateImage);
+    on<ComplaintEventSubmitComplaint>(_onSubmitComplaint);
   }
 
-  void _onUpdateTitle(UpdateTitle event, Emitter<ComplaintState> emit) {
+  void _onUpdateTitle(
+      ComplaintEventUpdateTitle event, Emitter<ComplaintState> emit) {
     emit(state.copyWith(title: event.title));
   }
 
-  void _onUpdateDescription(UpdateDescription event, Emitter<ComplaintState> emit) {
+  void _onUpdateDescription(
+      ComplaintEventUpdateDescription event, Emitter<ComplaintState> emit) {
     emit(state.copyWith(description: event.description));
   }
 
-  void _onUpdateCategory(UpdateCategory event, Emitter<ComplaintState> emit) {
+  void _onUpdateCategory(
+      ComplaintEventUpdateCategory event, Emitter<ComplaintState> emit) {
     emit(state.copyWith(category: event.category));
   }
 
-  void _onUpdateAnonymity(UpdateAnonymity event, Emitter<ComplaintState> emit) {
+  void _onUpdateAnonymity(
+      ComplaintEventUpdateAnonymity event, Emitter<ComplaintState> emit) {
     emit(state.copyWith(isAnonymous: event.isAnonymous));
   }
 
-  void _onUpdateImage(UpdateImage event, Emitter<ComplaintState> emit) {
+  void _onUpdateImage(
+      ComplaintEventUpdateImage event, Emitter<ComplaintState> emit) {
     emit(state.copyWith(image: event.image));
   }
 
   Future<void> _onSubmitComplaint(
-      SubmitComplaint event, Emitter<ComplaintState> emit) async {
+      ComplaintEventSubmitComplaint event, Emitter<ComplaintState> emit) async {
     // const String url = 'https://api.example.com/data'; // Replace with actual API endpoint
 
-    emit(state.copyWith(submissionStatus: SubmissionStatus.loading, errorMessage: null));
+    emit(state.copyWith(
+        submissionStatus: SubmissionStatus.loading, errorMessage: null));
 
     try {
       // final request = http.MultipartRequest('POST', Uri.parse(url));
-
+      await Future.delayed(const Duration(seconds: 2));
       // request.fields['title'] = state.title;
       // request.fields['description'] = state.description;
       // request.fields['category'] = state.category.toString().split('.').last;
@@ -73,21 +73,21 @@ class ComplaintBloc extends Bloc<ComplaintEvent, ComplaintState> {
       // final response = await request.send();
 
       // if (response.statusCode == 200) {
-        emit(state.copyWith(
-          submissionStatus: SubmissionStatus.success,
-          // Clear fields
-          title: '',
-          description: '',
-          category: Categories.c1,
-          isAnonymous: false,
-          image: null,
-        ));
-      // } 
+      emit(state.copyWith(
+        submissionStatus: SubmissionStatus.success,
+        // Clear fields
+        title: '',
+        description: '',
+        category: Categories.c1,
+        isAnonymous: false,
+        image: null,
+      ));
+      // }
       // else {
-        emit(state.copyWith(
-          submissionStatus: SubmissionStatus.error,
-          errorMessage: 'Failed to submit complaint: ${"response.statusCode"}',
-        ));
+      // emit(state.copyWith(
+      //   submissionStatus: SubmissionStatus.error,
+      //   errorMessage: 'Failed to submit complaint: ${"response.statusCode"}',
+      // ));
       // }
     } catch (error) {
       emit(state.copyWith(

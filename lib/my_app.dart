@@ -6,6 +6,8 @@ import 'package:the_bhm_app_bloc/screens/splash_screen.dart';
 import 'package:the_bhm_app_bloc/services/notification_service.dart';
 import 'package:the_bhm_app_bloc/state/auth/auth_bloc.dart';
 import 'package:the_bhm_app_bloc/state/auth/auth_provider.dart';
+import 'package:the_bhm_app_bloc/state/complain_status/complain_status_bloc.dart';
+import 'package:the_bhm_app_bloc/state/complain_status/complain_status_provider.dart';
 import 'package:the_bhm_app_bloc/state/complaint/complaint_bloc.dart';
 import 'package:the_bhm_app_bloc/state/home/home_bloc.dart';
 import 'package:the_bhm_app_bloc/state/home/home_provider.dart';
@@ -90,6 +92,11 @@ class _MyAppState extends State<MyApp> {
               ),
               BlocProvider<ComplaintBloc>(
                 create: (context) => ComplaintBloc(),
+              ),
+              BlocProvider<ComplainStatusBloc>(
+                create: (context) =>
+                    ComplainStatusBloc(ComplainStatusProvider())
+                      ..add(ComplainStatusEventFetch()),
               ),
               BlocProvider<NotificationBloc>(
                 create: (context) => NotificationBloc(NotificationProvider())

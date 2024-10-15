@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:the_bhm_app_bloc/components/drawer_wrapper.dart';
 import 'package:the_bhm_app_bloc/models/router_state.dart';
 import 'package:the_bhm_app_bloc/screens/complain.dart';
+import 'package:the_bhm_app_bloc/screens/complain_status.dart';
 import 'package:the_bhm_app_bloc/screens/home/home.dart';
 import 'package:the_bhm_app_bloc/screens/home/payment.dart';
 import 'package:the_bhm_app_bloc/screens/home/prev_payment.dart';
@@ -60,9 +61,14 @@ GoRouter router = GoRouter(
           builder: (context, state) => const QRScreen(),
         ),
         GoRoute(
-          path: "/complain",
-          builder: (context, state) => const ComplainScreen(),
-        ),
+            path: "/complain",
+            builder: (context, state) => const ComplainScreen(),
+            routes: [
+              GoRoute(
+                path: "status",
+                builder: (context, state) => const ComplainStatusScreen(),
+              )
+            ]),
         GoRoute(
           path: "/rebate",
           builder: (context, state) => const RebateScreen(),

@@ -7,49 +7,49 @@ abstract class ComplaintEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class UpdateTitle extends ComplaintEvent {
+class ComplaintEventUpdateTitle extends ComplaintEvent {
   final String title;
 
-  const UpdateTitle(this.title);
+  const ComplaintEventUpdateTitle(this.title);
 
   @override
   List<Object> get props => [title];
 }
 
-class UpdateDescription extends ComplaintEvent {
+class ComplaintEventUpdateDescription extends ComplaintEvent {
   final String description;
 
-  const UpdateDescription(this.description);
+  const ComplaintEventUpdateDescription(this.description);
 
   @override
   List<Object> get props => [description];
 }
 
-class UpdateCategory extends ComplaintEvent {
+class ComplaintEventUpdateCategory extends ComplaintEvent {
   final Categories category;
 
-  const UpdateCategory(this.category);
+  const ComplaintEventUpdateCategory(this.category);
 
   @override
   List<Object> get props => [category];
 }
 
-class UpdateAnonymity extends ComplaintEvent {
+class ComplaintEventUpdateAnonymity extends ComplaintEvent {
   final bool isAnonymous;
 
-  const UpdateAnonymity(this.isAnonymous);
+  const ComplaintEventUpdateAnonymity(this.isAnonymous);
 
   @override
   List<Object> get props => [isAnonymous];
 }
 
-class UpdateImage extends ComplaintEvent {
+class ComplaintEventUpdateImage extends ComplaintEvent {
   final File? image;
 
-  const UpdateImage(this.image);
+  const ComplaintEventUpdateImage(this.image);
 
   @override
   List<Object> get props => [image!];
 }
 
-class SubmitComplaint extends ComplaintEvent {}
+class ComplaintEventSubmitComplaint extends ComplaintEvent {}
