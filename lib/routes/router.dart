@@ -6,6 +6,7 @@ import 'package:the_bhm_app_bloc/screens/complain.dart';
 import 'package:the_bhm_app_bloc/screens/complain_status.dart';
 import 'package:the_bhm_app_bloc/screens/home/home.dart';
 import 'package:the_bhm_app_bloc/screens/home/payment.dart';
+import 'package:the_bhm_app_bloc/screens/home/payment_after_scan.dart';
 import 'package:the_bhm_app_bloc/screens/home/prev_payment.dart';
 import 'package:the_bhm_app_bloc/screens/login.dart';
 import 'package:the_bhm_app_bloc/screens/mess_menu.dart';
@@ -46,6 +47,12 @@ GoRouter router = GoRouter(
               GoRoute(
                 path: 'payment',
                 builder: (context, state) => const PaymentScreen(),
+              ),
+              GoRoute(
+                path: 'payment-detail',
+                builder: (context, state) => const PaymentDetailScreen(
+                  data: {},
+                ),
               ),
               GoRoute(
                 path: 'prevpayment',
